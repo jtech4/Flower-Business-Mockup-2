@@ -1,833 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bloom & Petals | Mockup</title>
-  <meta name="description" content="Flower business website mockup showcasing custom bouquets and special occasion arrangements." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #fffaf7;
-      --surface: #ffffff;
-      --text: #231815;
-      --muted: #6f625d;
-      --accent: #b8844c;
-      --accent-dark: #8f6436;
-      --soft: #f6ece4;
-      --border: rgba(35,24,21,.08);
-      --shadow: 0 18px 45px rgba(35,24,21,.08);
-      --radius: 24px;
-      --max: 1180px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flower Boutique</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    background: url('assets/yellow-roses.jpg') center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.hero button {
+    padding: 12px 25px;
+    margin-top: 15px;
+    border: none;
+    background: #000;
+    color: white;
+    cursor: pointer;
+}
+
+/* SECTION */
+.section {
+    padding: 50px 40px;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* CATEGORIES */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.category {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product img {
+    width: 100%;
+}
+
+.product h3 {
+    padding: 10px;
+}
+
+.product p {
+    padding: 0 10px 10px;
+    color: gray;
+}
+
+/* ORDER */
+.order-box {
+    background: #000;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+</style>
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(184,132,76,.09), transparent 28%),
-        linear-gradient(180deg, #fffdfc 0%, var(--bg) 100%);
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(255,250,247,.8);
-      border-bottom: 1px solid rgba(35,24,21,.06);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand strong {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      letter-spacing: .02em;
-    }
-
-    .brand span {
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      font-size: .96rem;
-      color: var(--muted);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      font-weight: 600;
-      border: 0;
-      box-shadow: 0 10px 24px rgba(184,132,76,.25);
-    }
-
-    .btn.secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-      box-shadow: none;
-    }
-
-    .hero {
-      padding: 48px 0 36px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(184,132,76,.12);
-      color: var(--accent-dark);
-      font-weight: 700;
-      font-size: .82rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      margin: 0;
-      line-height: 1.05;
-    }
-
-    h1 {
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      margin-top: 18px;
-      max-width: 10ch;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.06rem;
-      line-height: 1.75;
-      max-width: 58ch;
-      margin: 18px 0 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
-    .stats {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.35rem;
-      margin-bottom: 4px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .hero-card {
-      position: relative;
-      background: var(--surface);
-      border-radius: 32px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      border: 1px solid rgba(35,24,21,.06);
-    }
-
-    .hero-card img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 24px;
-    }
-
-    .floating-note {
-      position: absolute;
-      right: 28px;
-      bottom: 28px;
-      background: rgba(255,255,255,.95);
-      border-radius: 18px;
-      padding: 14px 16px;
-      box-shadow: 0 14px 30px rgba(0,0,0,.12);
-      max-width: 220px;
-      border: 1px solid rgba(35,24,21,.08);
-    }
-
-    .floating-note strong { display: block; margin-bottom: 5px; }
-    .floating-note span { color: var(--muted); font-size: .92rem; line-height: 1.5; }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-
-    .section-head p {
-      max-width: 58ch;
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 10px 0 0;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 3vw, 3rem);
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .category,
-    .product,
-    .testimonial,
-    .about-card,
-    .cta-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .category {
-      padding: 22px;
-      min-height: 145px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%);
-    }
-
-    .category strong {
-      font-size: 1.08rem;
-      margin-bottom: 8px;
-    }
-
-    .category p {
-      color: var(--muted);
-      line-height: 1.6;
-      margin: 0;
-      font-size: .95rem;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .product {
-      overflow: hidden;
-    }
-
-    .product img {
-      width: 100%;
-      aspect-ratio: 4 / 4.2;
-      object-fit: cover;
-    }
-
-    .product-body {
-      padding: 18px;
-    }
-
-    .product-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: start;
-      margin-bottom: 10px;
-    }
-
-    .product h3 {
-      font-size: 1.35rem;
-      line-height: 1.2;
-    }
-
-    .price {
-      color: var(--accent-dark);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .product p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: .95rem;
-    }
-
-    .pill {
-      display: inline-flex;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--accent-dark);
-      font-size: .85rem;
-      font-weight: 700;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .about-card {
-      padding: 28px;
-    }
-
-    .about-card p {
-      color: var(--muted);
-      line-height: 1.75;
-      margin: 0;
-    }
-
-    .about-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .about-item {
-      display: grid;
-      grid-template-columns: 46px 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: var(--soft);
-      display: grid;
-      place-items: center;
-      color: var(--accent-dark);
-      font-weight: 800;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 22px;
-    }
-
-    .gallery-main,
-    .gallery-stack {
-      display: grid;
-      gap: 22px;
-    }
-
-    .gallery-stack {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .gallery-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      background: white;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-tag {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      background: rgba(255,255,255,.93);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 700;
-      box-shadow: 0 10px 24px rgba(0,0,0,.12);
-      font-size: .9rem;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .testimonial {
-      padding: 24px;
-    }
-
-    .stars {
-      letter-spacing: .15em;
-      color: var(--accent-dark);
-      margin-bottom: 14px;
-      font-size: 1rem;
-    }
-
-    .testimonial p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0 0 14px;
-    }
-
-    .testimonial strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .cta {
-      padding-bottom: 56px;
-    }
-
-    .cta-panel {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items: center;
-      background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%);
-    }
-
-    .cta-panel p {
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 54ch;
-      margin: 14px 0 0;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .contact-box {
-      padding: 18px;
-      border-radius: 20px;
-      background: white;
-      border: 1px solid var(--border);
-    }
-
-    .contact-box small {
-      display: block;
-      color: var(--muted);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-weight: 700;
-      font-size: .75rem;
-    }
-
-    .contact-box strong {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    footer {
-      padding: 24px 0 50px;
-      color: var(--muted);
-      font-size: .94rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .about-grid,
-      .gallery,
-      .cta-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .products,
-      .categories,
-      .testimonials,
-      .contact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(var(--max), calc(100% - 22px));
-      }
-
-      .products,
-      .categories,
-      .gallery-stack,
-      .testimonials,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 24px;
-      }
-
-      h1 {
-        max-width: none;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .hero-actions,
-      .stats {
-        gap: 12px;
-      }
-
-      .floating-note {
-        left: 24px;
-        right: 24px;
-        bottom: 22px;
-        max-width: none;
-      }
-    }
-  </style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="container nav">
-      <a href="#home" class="brand">
-        <strong>Bloom & Petals</strong>
-        <span>Luxury bouquets for every occasion</span>
-      </a>
-      <div class="nav-links">
-        <a href="#collections">Collections</a>
-        <a href="#featured">Featured</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="btn">Request an Order</a>
-      </div>
+
+<!-- NAV -->
+<nav>
+    <h2>Flower Boutique</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Funeral</a>
+        <a href="#">Contact</a>
     </div>
-  </div>
+</nav>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Mockup Preview</span>
-          <h1>Custom floral designs that feel unforgettable.</h1>
-          <p class="lead">
-            A modern website concept for a flower business focused on bold bouquets, romantic arrangements, and custom gifts for birthdays, anniversaries, events, and special deliveries.
-          </p>
-          <div class="hero-actions">
-            <a href="#featured" class="btn">Browse Arrangements</a>
-            <a href="#about" class="btn secondary">See Brand Story</a>
-          </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>Custom</strong>
-              <span>Designed for birthdays, romance, and events</span>
-            </div>
-            <div class="stat">
-              <strong>Premium</strong>
-              <span>Luxury wrapping, ribbons, and gift-style presentation</span>
-            </div>
-            <div class="stat">
-              <strong>Flexible</strong>
-              <span>Pickup, delivery, and custom order requests</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-card">
-          <img src="assets/big-yellow-roses.jpg" alt="Luxury bouquet of yellow roses" />
-          <div class="floating-note">
-            <strong>Signature bouquet spotlight</strong>
-            <span>Ideal as a hero image for the home page with a strong first impression and premium feel.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="collections">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Collections</span>
-            <h2>Built to showcase her best-selling styles</h2>
-            <p>
-              This layout can easily grow into a real shop later. For now, it works great as a polished gallery-style website with categories and custom order calls to action.
-            </p>
-          </div>
-        </div>
-        <div class="categories">
-          <div class="category">
-            <strong>Rose Bouquets</strong>
-            <p>Elegant single-color and mixed-color roses for anniversaries, birthdays, and romantic gifts.</p>
-          </div>
-          <div class="category">
-            <strong>Sunflower Arrangements</strong>
-            <p>Bright, cheerful bouquets that stand out with warm tones and seasonal energy.</p>
-          </div>
-          <div class="category">
-            <strong>Chocolate & Gift Sets</strong>
-            <p>Creative floral bundles paired with treats and accessories for special occasions.</p>
-          </div>
-          <div class="category">
-            <strong>Custom Occasion Orders</strong>
-            <p>Personalized pieces for Valentine’s Day, proposals, birthdays, and celebration deliveries.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="featured">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Featured Arrangements</span>
-            <h2>A premium catalog look without building the full store yet</h2>
-            <p>
-              These cards can later connect to product pages, pricing, or checkout. For the mockup, they show how her arrangements would be presented in a clean and modern way.
-            </p>
-          </div>
-        </div>
-        <div class="products">
-          <article class="product">
-            <img src="assets/pink-roses.jpg" alt="Pink and lavender rose bouquet" />
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Blush Garden Bouquet</h3>
-                <span class="price">From $95</span>
-              </div>
-              <p>Soft pink, ivory, and lavender tones arranged in a romantic wrapped bouquet with delicate filler flowers.</p>
-              <span class="pill">Popular for birthdays</span>
-            </div>
-          </article>
-          <article class="product">
-            <img src="assets/red-yellow-roses.jpg" alt="Red roses and sunflower bouquet" />
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Sunset Romance Mix</h3>
-                <span class="price">From $110</span>
-              </div>
-              <p>Bold sunflowers and deep red roses combined for a vibrant arrangement that feels dramatic and memorable.</p>
-              <span class="pill">Great for celebrations</span>
-            </div>
-          </article>
-          <article class="product">
-            <img src="assets/red-roses-chocolates.jpg" alt="Heart arrangement with red roses and chocolates" />
-            <div class="product-body">
-              <div class="product-top">
-                <h3>Sweetheart Gift Box</h3>
-                <span class="price">From $120</span>
-              </div>
-              <p>A heart-shaped arrangement pairing premium roses with chocolates for a romantic gift presentation.</p>
-              <span class="pill">Valentine's favorite</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about-grid">
-        <div class="about-card">
-          <span class="eyebrow">About the Brand</span>
-          <h2 style="margin:14px 0 18px;">Designed to feel personal, stylish, and gift-worthy</h2>
-          <p>
-            This mockup positions her business as a premium local florist with an emphasis on presentation, custom requests, and standout arrangements that photograph beautifully for social media.
-          </p>
-          <div class="about-list">
-            <div class="about-item">
-              <div class="icon">01</div>
-              <div>
-                <strong>Premium visual style</strong>
-                <p>Soft luxury colors, large photography, and elegant fonts help the business feel upscale and trustworthy.</p>
-              </div>
-            </div>
-            <div class="about-item">
-              <div class="icon">02</div>
-              <div>
-                <strong>Built to convert inquiries</strong>
-                <p>The site can be focused on direct orders through call, text, Instagram, or a custom order form before full e-commerce is added.</p>
-              </div>
-            </div>
-            <div class="about-item">
-              <div class="icon">03</div>
-              <div>
-                <strong>Easy to expand later</strong>
-                <p>More categories, real pricing, delivery zones, and online payments can all be added once she is ready.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="about-card" style="padding:0; overflow:hidden;">
-          <img src="assets/yellow-roses.jpg" alt="Sunflower and yellow rose bouquet" style="width:100%; height:100%; object-fit:cover; min-height:100%;" />
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Gallery Layout</span>
-            <h2>A homepage gallery that feels warm and professional</h2>
-            <p>
-              This section gives her a scroll-stopping visual showcase using the photos she already has, which is perfect for a mockup and for future launch content.
-            </p>
-          </div>
-        </div>
-        <div class="gallery">
-          <div class="gallery-main">
-            <div class="gallery-card" style="min-height: 520px;">
-              <img src="assets/big-yellow-roses.jpg" alt="Yellow roses bouquet" />
-              <div class="gallery-tag">Luxury rose arrangements</div>
-            </div>
-          </div>
-          <div class="gallery-stack">
-            <div class="gallery-card">
-              <img src="assets/pink-roses.jpg" alt="Pink and purple bouquet" />
-              <div class="gallery-tag">Soft romantic florals</div>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/red-yellow-roses.jpg" alt="Sunflowers and red roses bouquet" />
-              <div class="gallery-tag">Bold celebration bouquets</div>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/red-roses-chocolates.jpg" alt="Rose and chocolate heart arrangement" />
-              <div class="gallery-tag">Gift sets & surprises</div>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/yellow-roses.jpg" alt="Yellow sunflower bouquet" />
-              <div class="gallery-tag">Sunflower favorites</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">Social Proof Area</span>
-            <h2>Room for reviews once she starts collecting them</h2>
-            <p>
-              Even if she does not have website reviews yet, adding a section like this shows how customer trust can be built into the final version.
-            </p>
-          </div>
-        </div>
-        <div class="testimonials">
-          <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>Absolutely beautiful presentation. The bouquet looked even better in person and made the moment feel extra special.</p>
-            <strong>Future Review Placeholder</strong>
-            <span style="color:var(--muted);">Happy Customer</span>
-          </div>
-          <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>The wrapping, ribbon, and overall style made it feel premium. This is the kind of florist site that helps customers trust what they are ordering.</p>
-            <strong>Future Review Placeholder</strong>
-            <span style="color:var(--muted);">Repeat Customer</span>
-          </div>
-          <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>Easy to browse, beautiful photos, and a clear way to place a custom order. A clean website like this would work really well for a flower business.</p>
-            <strong>Future Review Placeholder</strong>
-            <span style="color:var(--muted);">Local Client</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-panel">
-          <div>
-            <span class="eyebrow">Contact & Ordering</span>
-            <h2 style="margin-top: 14px;">A clean call-to-action section to help turn visitors into inquiries</h2>
-            <p>
-              This mockup can be updated with her real phone number, Instagram, service area, and order form once she is ready to move forward.
-            </p>
-          </div>
-          <div class="contact-grid">
-            <div class="contact-box">
-              <small>Phone</small>
-              <strong>(555) 123-4567</strong>
-            </div>
-            <div class="contact-box">
-              <small>Instagram</small>
-              <strong>@yourfloralbrand</strong>
-            </div>
-            <div class="contact-box">
-              <small>Service Area</small>
-              <strong>Local delivery & pickup available</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      Mockup created for client preview. Brand name, pricing, text, and contact details can be fully customized before launch.
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h1>Beautiful Flower Arrangements</h1>
+        <p>Custom designs for every occasion</p>
+        <button>Order Now</button>
     </div>
-  </footer>
+</div>
+
+<!-- CATEGORIES -->
+<div class="section">
+    <h2>Our Categories</h2>
+    <div class="categories">
+        <div class="category">Roses</div>
+        <div class="category">Mixed Bouquets</div>
+        <div class="category">Luxury Boxes</div>
+        <div class="category">Funeral Arrangements</div>
+        <div class="category">Special Events</div>
+        <div class="category">Custom Orders</div>
+    </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section">
+    <h2>Featured Arrangements</h2>
+    <div class="products">
+
+        <div class="product">
+            <img src="assets/yellow-roses.jpg">
+            <h3>Yellow Rose Bouquet</h3>
+            <p>Starting at $85</p>
+        </div>
+
+        <div class="product">
+            <img src="assets/pink-roses.jpg">
+            <h3>Pink Mix Bouquet</h3>
+            <p>Custom Pricing</p>
+        </div>
+
+        <div class="product">
+            <img src="assets/red-yellow.jpg">
+            <h3>Sunflower & Roses</h3>
+            <p>Starting at $95</p>
+        </div>
+
+        <div class="product">
+            <img src="assets/chocolate-box.jpg">
+            <h3>Romantic Gift Box</h3>
+            <p>Starting at $120</p>
+        </div>
+
+        <div class="product">
+            <img src="assets/yellow-roses2.jpg">
+            <h3>Classic Yellow Arrangement</h3>
+            <p>Custom Pricing</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- HOW TO ORDER -->
+<div class="section">
+    <div class="order-box">
+        <h2>How to Order</h2>
+        <p>• Call or Text Us</p>
+        <p>• Message us on Instagram</p>
+        <p>• Request a custom order</p>
+        <p>We will confirm pricing, availability, and delivery details.</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>📞 (XXX) XXX-XXXX</p>
+    <p>📧 email@example.com</p>
+    <p>📍 Your City, CA</p>
+    <p>📸 @instagram</p>
+</footer>
+
 </body>
 </html>
